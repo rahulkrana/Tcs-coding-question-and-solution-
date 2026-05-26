@@ -1,0 +1,37 @@
+/*
+   there is parking which is represented in 2-d array.
+   in each row, number of parks  of bike is given in such a way that "0" represent no parking and "1" represent
+   parking .
+   print the rows in which the maximum number parking is available and if more than 1 row is available then print
+   all the rows.
+ */
+// CODE:-
+import java.util.ArrayList;
+public class MaxParkingInRow {
+    public static void main(String[] args){
+        int[][] arr={
+                {1,1,0},
+                {0,1,0},
+                {0,0,0},
+                {1,0,1}
+        };
+        int max=-1;
+        ArrayList<Integer> newArr=new ArrayList<>();
+        for(int i=0;i<4;i++){
+            int sum=0;
+            for(int j=0;j<3;j++){
+                sum+=arr[i][j];
+            }
+            if(sum>max){
+                max=sum;
+            }
+            newArr.add(sum);
+        }
+
+        for(int i=0;i<newArr.size();i++){
+            if(newArr.get(i)==max){
+                System.out.print("R"+(i+1)+" ");
+            }
+        }
+    }
+}
